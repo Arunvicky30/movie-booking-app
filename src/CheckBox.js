@@ -1,14 +1,12 @@
 import React from "react";
-import { Col } from "reactstrap";
 
 const CheckBox = (props) => {
-  console.log(props);
   return (
     <div style={{ height: "40px", width: "40px" }} className="me-2">
       <input
         type="checkbox"
         id={props.id}
-        name="cc"
+        name="SeatNumber"
         onChange={props.handleChange}
         value={props.id}
       />

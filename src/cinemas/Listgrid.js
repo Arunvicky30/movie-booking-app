@@ -8,12 +8,14 @@ const Listgrid = (props) => {
   const { Data, key } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  //NAvigation to movie list
   const NavigateMovieList = (Data) => {
     const MovieListData = JSON.stringify(Data);
     dispatch(ShowDetails(MovieListData));
     navigate("/MovieList");
-    console.log(Data);
   };
+
   return (
     <>
       <Card

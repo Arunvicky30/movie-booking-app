@@ -11,15 +11,21 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
-          <div className="mt-3">Welcome Arun!</div>
-          <Link to="/">Home</Link>
-          {/* <div
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Back to Home
-          </div> */}
+          <div className="d-flex bg-white app-header-zoho justify-content-between">
+            <div className="ms-3">
+              <img className="app-logo" alt="" src="/img/AppLogo.png"></img>
+            </div>
+            <div className="d-flex align-items-center">
+              Welcome to Zoho Cinemas....!
+            </div>
+
+            <div className="d-flex align-items-center me-5">
+              <div className="justify-content-end me-3"> Welcome Arun!</div>
+              <Link to="/">Home</Link>
+            </div>
+          </div>
+
+          {/* <img alt="" src="../img/cinema-tickets-3d-glasses.jpg"></img> */}
           <Routes>
             <Route exact path="/" element={<Layout />}></Route>
             <Route exact path="/MovieList" element={<ShowList />}></Route>
