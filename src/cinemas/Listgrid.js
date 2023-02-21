@@ -28,7 +28,9 @@ const Listgrid = (props) => {
       >
         {/* <img alt="Sample" src={Data.thumbnail_url} /> */}
         <CardBody>
-          <div className="mb-3 fs-5 fw-bold">{Data.theatre_name}</div>
+          <div className="mb-3 fs-5 fw-bold text-orange">
+            {Data.theatre_name}
+          </div>
           <div className="mb-3">{Data.address}</div>
           <a href={Data.website}>{Data.website}</a>
         </CardBody>

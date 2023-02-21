@@ -26,7 +26,7 @@ function Cinemasdetails() {
   return (
     <>
       <div className="mt-3">
-        <Row>
+        <Row className="justify-content-center">
           {Data.theatre &&
             Data.theatre.length > 0 &&
             Data.theatre.map((data, i) => <Listgrid Data={data} Key={i} />)}

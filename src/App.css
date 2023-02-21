@@ -4,6 +4,9 @@
 .text-white {
   color: #fff;
 }
+.text-orange {
+  color: #f38744;
+}
 .App {
   overflow: hidden;
   height: 100vh;
