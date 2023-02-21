@@ -104,17 +104,17 @@ function Showdetails() {
   return (
     <>
       <div className="ShowListDiv">
-        <div className=" position-relative">
-          <span className="fs-5 fw-bold">
-            Welcome {MovieDatas.theatre_name}
+        <div className=" position-relative d-flex justify-content-start my-4 ms-5">
+          <span className="fs-3 fw-bold cinema-text ms-5">
+            {MovieDatas.theatre_name}
           </span>
         </div>
         <Row className="text-white">
           <Col sm={2}>
-            <div className="fw-bold fs-5">Movie List</div>
+            <div className="fw-bold fs-5 text-red">Movie List</div>
           </Col>
           <Col sm={2}>
-            <div className="fw-bold fs-5">Timings</div>
+            <div className="fw-bold fs-5 text-blue">Timings</div>
           </Col>
           <Col sm={2}>
             <div></div>

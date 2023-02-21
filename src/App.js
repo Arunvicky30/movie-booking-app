@@ -15,7 +15,7 @@ function App() {
             <div className="ms-3">
               <img className="app-logo" alt="" src="/img/AppLogo.png"></img>
             </div>
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center fs-3">
               Welcome to Zoho Cinemas....!
             </div>
 
