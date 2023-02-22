@@ -13,6 +13,12 @@
 .text-blue {
   color: #3e59c3;
 }
+.fz-10 {
+  font-size: 10px;
+}
+.Moviecard {
+  background-color: #f2f2f2 !important;
+}
 .cinema-text {
   font-family: cursive;
   color: #7109c0;

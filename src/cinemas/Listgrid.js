@@ -20,7 +20,7 @@ const Listgrid = (props) => {
     <>
       <Card
         key={key}
-        className="mx-4 my-5 cursor-pointer"
+        className="mx-4 my-5 cursor-pointer Moviecard"
         style={{ width: "18rem" }}
         onClick={() => {
           NavigateMovieList(Data);
@@ -28,11 +28,17 @@ const Listgrid = (props) => {
       >
         {/* <img alt="Sample" src={Data.thumbnail_url} /> */}
         <CardBody>
-          <div className="mb-3 fs-5 fw-bold text-orange">
+          <div className="mb-3 fs-4 fw-bold text-orange">
             {Data.theatre_name}
           </div>
-          <div className="mb-3">{Data.address}</div>
-          <a href={Data.website}>{Data.website}</a>
+          <div className="mb-3 fz-10">{Data.address}</div>
+          <a
+            href={Data.website}
+            className="text-blue text-decoration-none fw-bold fz-10"
+          >
+            {" "}
+            {Data.website}
+          </a>
         </CardBody>
       </Card>
     </>

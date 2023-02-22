@@ -220,10 +220,11 @@ function Showdetails() {
                   )}
                 </ModalBody>
                 <ModalFooter>
-                  {/* <Button color="primary" onClick={toggleNested}>
-                    Book Again
-                  </Button>{" "} */}
-                  <Button color="secondary" onClick={toggleAll}>
+                  <Button
+                    color="secondary"
+                    className="btn-sm"
+                    onClick={toggleAll}
+                  >
                     Close
                   </Button>
                 </ModalFooter>
