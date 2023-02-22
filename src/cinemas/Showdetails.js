@@ -64,9 +64,7 @@ function Showdetails() {
 
   if (SeatCountData.length > 0) {
     for (let i = 0; i <= SeatCountData.length; i++) {
-      console.log(SeatCountData);
       SelectedShowText.push(<div id={i}>{SeatCountData[i]}</div>);
-      console.log(SelectedShowText);
     }
   } else {
     SelectedShowText.push(<div>Please select atleast 1 tickets</div>);
