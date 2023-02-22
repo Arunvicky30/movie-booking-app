@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 import {
@@ -22,7 +23,8 @@ function Showdetails() {
   const MovieStoreData = useSelector((state) => state.MovieApp.value);
   const SeatCountData = useSelector((state) => state.MovieApp.SeatValue);
   const EmailId = useSelector((state) => state.MovieApp.EmailId);
-  const MovieDatas = JSON.parse(MovieStoreData);
+  const MovieDatas =
+    MovieStoreData.length !== 0 ? JSON.parse(MovieStoreData) : [];
 
   // Modal Variables
   const [modal, setModal] = useState(false);
@@ -104,72 +106,88 @@ function Showdetails() {
   return (
     <>
       <div className="ShowListDiv">
-        <div className=" position-relative d-flex justify-content-start my-4 ms-5">
-          <span className="fs-3 fw-bold cinema-text ms-5">
-            {MovieDatas.theatre_name}
-          </span>
-        </div>
-        <Row className="text-white">
-          <Col sm={2}>
-            <div className="fw-bold fs-5 text-red">Movie List</div>
-          </Col>
-          <Col sm={2}>
-            <div className="fw-bold fs-5 text-blue">Timings</div>
-          </Col>
-          <Col sm={2}>
-            <div></div>
-          </Col>
-        </Row>
-        <Row className="my-3 text-white">
-          <Col sm={2}>
-            <div className="fw-bold fs-5 pt-2">{MovieDatas.show1_movie}</div>
-          </Col>
-          <Col sm={1}>
-            <div
-              className="border rounded p-2 cursor-pointer  fw-bold"
-              onClick={() => {
-                toggle(MovieDatas.show1_movie, MovieDatas.show1_time);
-              }}
-            >
-              {MovieDatas.show1_time}
+        {MovieStoreData.length !== 0 ? (
+          <div className="ms-5">
+            <div className=" position-relative d-flex justify-content-start my-4  text-start">
+              <span className="fs-3 fw-bold cinema-text  ">
+                {MovieDatas.theatre_name}
+              </span>
             </div>
-          </Col>
-          <Col sm={1}>
-            <div
-              className="border rounded p-2 cursor-pointer  fw-bold"
-              onClick={() => {
-                toggle(MovieDatas.show3_movie, MovieDatas.show3_time);
-              }}
-            >
-              {MovieDatas.show3_time}
-            </div>
-          </Col>
-        </Row>
-        <Row className="my-3 text-white">
-          <Col sm={2}>
-            <div className="fw-bold fs-5 pt-2">{MovieDatas.show2_movie}</div>
-          </Col>
-          <Col sm={1}>
-            <div
-              className="border rounded p-2 cursor-pointer  fw-bold"
-              onClick={() => {
-                toggle(MovieDatas.show2_movie, MovieDatas.show2_time);
-              }}
-            >
-              {MovieDatas.show2_time}
-            </div>
-          </Col>
-          <Col sm={1}>
-            <div
-              className="border rounded p-2 cursor-pointer  fw-bold"
-              onClick={() => {
-                toggle(MovieDatas.show4_movie, MovieDatas.show4_time);
-              }}
-            >
-              {MovieDatas.show4_time}
-            </div>
-          </Col>
-        </Row>
+            <Row className="text-white">
+              <Col sm={2} className="text-start">
+                <div className="fw-bold fs-5 text-red">Movie List</div>
+              </Col>
+              <Col sm={2}>
+                <div className="fw-bold fs-5 text-blue">Timings</div>
+              </Col>
+              <Col sm={2}>
+                <div></div>
+              </Col>
+            </Row>
+            <Row className="my-3 text-white">
+              <Col sm={2} className="text-start">
+                <div className="fw-bold fs-5 pt-2">
+                  {MovieDatas.show1_movie}
+                </div>
+              </Col>
+              <Col sm={1}>
+                <div
+                  className="border rounded p-2 cursor-pointer  fw-bold"
+                  onClick={() => {
+                    toggle(MovieDatas.show1_movie, MovieDatas.show1_time);
+                  }}
+                >
+                  {MovieDatas.show1_time}
+                </div>
+              </Col>
+              <Col sm={1}>
+                <div
+                  className="border rounded p-2 cursor-pointer  fw-bold"
+                  onClick={() => {
+                    toggle(MovieDatas.show3_movie, MovieDatas.show3_time);
+                  }}
+                >
+                  {MovieDatas.show3_time}
+                </div>
+              </Col>
+            </Row>
+            <Row className="my-3 text-white">
+              <Col sm={2}>
+                <div className="fw-bold fs-5 pt-2 text-start">
+                  {MovieDatas.show2_movie}
+                </div>
+              </Col>
+              <Col sm={1}>
+                <div
+                  className="border rounded p-2 cursor-pointer  fw-bold"
+                  onClick={() => {
+                    toggle(MovieDatas.show2_movie, MovieDatas.show2_time);
+                  }}
+                >
+                  {MovieDatas.show2_time}
+                </div>
+              </Col>
+              <Col sm={1}>
+                <div
+                  className="border rounded p-2 cursor-pointer  fw-bold"
+                  onClick={() => {
+                    toggle(MovieDatas.show4_movie, MovieDatas.show4_time);
+                  }}
+                >
+                  {MovieDatas.show4_time}
+                </div>
+              </Col>
+            </Row>
+          </div>
+        ) : (
+          <div className="text-white mt-5 fs-4">
+            Please go to{" "}
+            <Link to="/" className="text-orange">
+              Home
+            </Link>{" "}
+            and choose atleast one cinemas
+          </div>
+        )}
 
         <div>
           <Modal isOpen={modal} toggle={toggle} centered>
@@ -193,7 +211,7 @@ function Showdetails() {
                   {SeatCountData.length !== 0 ? (
                     <div>
                       <div>
-                        Booking has been successfully your Ticket numbers are :
+                        Your tickets are booked successfully, seat numbers are :
                       </div>
                       <Row>{SelectedShowText}</Row>
                     </div>
